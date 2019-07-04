@@ -73,6 +73,8 @@ public class AttachThread extends Thread {
 
 						System.out.println("加载java Agent ：" + jar);
 						vm.loadAgent(jar);
+						// vm.loadAgent(jar, options);
+						
 						vm.detach();
 						System.out.println("从该虚拟机中分离");
 
