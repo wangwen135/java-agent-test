@@ -18,6 +18,15 @@ public class AgentMain {
 
 		System.out.println("执行了agentmain 方法 ");
 
+		System.out.println("调用堆栈信息");
+		StackTraceElement[] se = Thread.currentThread().getStackTrace();
+		for (int i = 0; i < se.length; i++) {
+			StackTraceElement stackTraceElement = se[i];
+			System.out.println(stackTraceElement.toString());
+		}
+
+		System.out.println("#########################");
+
 		inst.addTransformer(new Transformer(), true);
 
 		System.out.println("重新加载类：" + TransClass.class);
@@ -31,6 +40,15 @@ public class AgentMain {
 	public static void premain(String agentArgs, Instrumentation inst) throws Exception {
 
 		System.out.println("执行了premain 方法 ");
+
+		System.out.println("调用堆栈信息");
+		StackTraceElement[] se = Thread.currentThread().getStackTrace();
+		for (int i = 0; i < se.length; i++) {
+			StackTraceElement stackTraceElement = se[i];
+			System.out.println(stackTraceElement.toString());
+		}
+
+		System.out.println("#########################");
 
 		inst.addTransformer(new Transformer());
 
